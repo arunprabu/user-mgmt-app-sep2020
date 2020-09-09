@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { UsersComponent } from './users/users.component';
 import { AboutComponent } from './about/about.component';
+import { CpbComponent } from './concepts/cpb/cpb.component';
+import { CebComponent } from './concepts/ceb/ceb.component';
 
 // Decorator
 // Main Switching Box
@@ -23,7 +25,9 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     ConceptsComponent,
     UsersComponent,
-    AboutComponent
+    AboutComponent,
+    CpbComponent,
+    CebComponent
   ],
   imports: [
     BrowserModule,

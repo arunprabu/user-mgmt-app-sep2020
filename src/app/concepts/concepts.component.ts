@@ -18,6 +18,9 @@ export class ConceptsComponent implements OnInit {
   // two way binding related
   course = 'Angular';
 
+  // ceb related
+  dataReceivedFromChild;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -27,5 +30,11 @@ export class ConceptsComponent implements OnInit {
   btnClickHandler(evt){
     alert('clicked');
     console.log(evt);
+  }
+
+  // custom event binding related
+  profileLoadedHandler(evt){ // Step 5: receiving the data from child comp in evt
+    console.log(evt);
+    this.dataReceivedFromChild = evt;
   }
 }
