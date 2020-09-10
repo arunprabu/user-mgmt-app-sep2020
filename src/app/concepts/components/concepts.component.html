@@ -68,6 +68,46 @@
       <div class="tab-pane fade" id="directives-tab" role="tabpanel" aria-labelledby="directives-tab">
         <h2>Directives</h2>
         
+        <pre>
+          Directives
+          ---
+              Building block 
+              Special instructions to the DOM 
+
+              1. Attribute Directives 
+                  routerLink, routerLinkActive, ngClass, ngStyle, ngNativeValidate, formControlName
+              2. Structural Directives
+                  make impact in structure of the page (html/ template)
+                  *ngIf, *ngFor, ngSwitch
+        </pre>
+
+        <hr>
+        <h3>*ngIf</h3>
+
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+          Wow! you have successfully logged in!!
+        </div>
+
+        <div class="alert alert-danger" *ngIf="!isLoggedIn">
+          You need to login to access the page!
+        </div>
+
+        <!-- todo: *ngIf with else in angular -->
+        
+        <h3>*ngFor</h3>
+        <ul>
+          <li *ngFor="let skill of skillsList">{{skill}}</li>
+        </ul>
+
+        <!-- todo: find index in above *ngFor-->
+
+        <!-- todo: ngSwitch -->
+        
+        <hr>
+        <h3>Custom Attribute Directive</h3>
+        <div appColorizer>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </div>
   
       </div>
   

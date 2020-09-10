@@ -21,6 +21,11 @@ export class ConceptsComponent implements OnInit {
   // ceb related
   dataReceivedFromChild;
 
+  // structural directives related
+  isLoggedIn = false;
+  skillsList: string[] = ['html', 'css', 'js'];
+
+
   constructor() { }
 
   ngOnInit(): void {
