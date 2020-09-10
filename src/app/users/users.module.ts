@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './components/users.component';
@@ -15,6 +16,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     UsersRoutingModule
   ]
 })

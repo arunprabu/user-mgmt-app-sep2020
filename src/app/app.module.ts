@@ -33,7 +33,7 @@ import { UsersModule } from './users/users.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule, // ngModel
     UsersModule
   ],
   providers: [],

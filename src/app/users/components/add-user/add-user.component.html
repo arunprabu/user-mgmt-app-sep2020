@@ -6,14 +6,17 @@
 
       </div>
       <!-- step3 patch up html form with the ts using [formGroup]-->
-      <form class="col-md-6 offset-md-3">
+      <form class="col-md-6 offset-md-3" [formGroup]="userForm" 
+      (ngSubmit)="addUserSubmitHandler()">
         <div class="form-group row">
           <label for="staticName" class="col-sm-2 col-form-label">Name</label>
           <div class="col-sm-10">
-             <!-- Step4: connect the formcontrol in form fields-->
+             <!-- Step4: connect the formControl in form fields-->
             <input type="text" class="form-control" 
-            placeholder="Enter Name" 
-            />
+            placeholder="Enter Name" formControlName="name"
+            [ngClass]="{ 'is-invalid': userForm.get('name').touched
+            && userForm.get('name').invalid }"/>
+            <!-- refer TS for step 5 -->
             <div class="invalid-feedback">
               <div>Name is required</div>
             </div>
@@ -23,7 +26,9 @@
           <label for="staticPhone" class="col-sm-2 col-form-label">Phone</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" placeholder="Enter Phone" 
-            />
+            formControlName="phone" 
+            [ngClass]="{ 'is-invalid': userForm.get('phone').touched
+            && userForm.get('phone').invalid }"/>
             <div class="invalid-feedback">
               <div>Phone is required</div>
             </div>
@@ -32,12 +37,14 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="Enter Email" 
-            />
-            <div 
+            <input type="email" class="form-control" placeholder="Enter Email" 
+            formControlName="email" 
+            [ngClass]="{ 'is-invalid': userForm.get('email').touched
+            && userForm.get('email').invalid }"/>
+            <div *ngIf="userForm.get('email').touched && userForm.get('email').invalid" 
             class="invalid-feedback">
-                <div>Email is required</div>
-                <div>Email seems to be not valid</div>
+                <div *ngIf="userForm.get('email').errors?.required">Email is required</div>
+                <div *ngIf="userForm.get('email').errors?.email">Email seems to be not valid</div>
               </div>
           </div>
         </div>
