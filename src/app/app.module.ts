@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { MenuComponent } from './shared/menu/menu.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { MenuComponent } from './shared/components/menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { ConceptsComponent } from './concepts/components/concepts.component';
-import { UsersComponent } from './users/users.component';
 import { AboutComponent } from './about/about.component';
 import { CpbComponent } from './concepts/components/cpb/cpb.component';
 import { CebComponent } from './concepts/components/ceb/ceb.component';
 import { ColorizerDirective } from './concepts/directives/colorizer.directive';
+import { UsersModule } from './users/users.module';
 
 // Decorator
 // Main Switching Box
@@ -25,7 +25,6 @@ import { ColorizerDirective } from './concepts/directives/colorizer.directive';
     MenuComponent,
     HomeComponent,
     ConceptsComponent,
-    UsersComponent,
     AboutComponent,
     CpbComponent,
     CebComponent,
@@ -34,7 +33,8 @@ import { ColorizerDirective } from './concepts/directives/colorizer.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent] // STEP 3: AppModule is bootstrapped with AppComponent

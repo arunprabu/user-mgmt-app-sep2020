@@ -42,4 +42,8 @@ export class ConceptsComponent implements OnInit {
     console.log(evt);
     this.dataReceivedFromChild = evt;
   }
+
+  loginHandler(){
+    this.isLoggedIn = true;
+  }
 }
