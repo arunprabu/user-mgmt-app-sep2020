@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -8,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  usersList: any;
 
-  ngOnInit(): void {
+  constructor(private userService: UserService) {
+    console.log('Inside constructor');
+  }
+
+  ngOnInit(): void { // lifecycle hook
+    console.log('Inside ngOnInit');
+    // ideal place for ajax calls
+    this.userService.getUsers()
+      .subscribe((res: any) => {
+        console.log(res);
+        this.usersList = res;
+      });
   }
 
 }
