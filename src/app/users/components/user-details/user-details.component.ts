@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../models/user';
 
 declare var $: any;
 
@@ -12,8 +13,8 @@ declare var $: any;
 })
 export class UserDetailsComponent implements OnInit {
 
-  contactData: any;
-  duplicateContactData: any;
+  contactData: User;
+  duplicateContactData: User;
   isUpdated: boolean;
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
@@ -24,7 +25,7 @@ export class UserDetailsComponent implements OnInit {
     const userId = this.activatedRoute.snapshot.paramMap.get('userId');
 
     this.userService.getUserByUserId(userId)
-      .subscribe((res: any) => {
+      .subscribe((res: User) => {
         console.log(res);
         this.contactData = res;
       });
@@ -39,7 +40,7 @@ export class UserDetailsComponent implements OnInit {
     console.log(formInfo); // form state - for additional ts side validation
     console.log(this.duplicateContactData);
     this.userService.updateUser(this.duplicateContactData)
-      .subscribe((res: any) => {
+      .subscribe((res: User) => {
         console.log(res);
         if (res && res.id) {
           this.isUpdated = true;

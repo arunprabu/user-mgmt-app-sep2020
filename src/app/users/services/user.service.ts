@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
 // Decorator -- makes the class dependency injectable
 @Injectable({
@@ -14,13 +15,13 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // create
-  createUser(userData): Promise<any> { // 1. get the data from comp
+  createUser(userData): Promise<User> { // 1. get the data from comp
     console.log(userData);
 
-    const addUserPromise = new Promise( (resolve, reject) => {
+    const addUserPromise: Promise<User> = new Promise( (resolve, reject) => {
       return this.http.post(this.REST_API_URL, userData)
         .toPromise()
-        .then( ( res: any) => {
+        .then( ( res: User) => {
           console.log(res);
           resolve(res);
         })
@@ -33,7 +34,7 @@ export class UserService {
         });
     });
 
-    return addUserPromise;
+    return addUserPromise as Promise<User>;
 
     // 2. send the above data to the rest api
     // 2.1. What's the REST API URL? https://jsonplaceholder.typicode.com/users/
@@ -49,10 +50,10 @@ export class UserService {
   }
 
   // read
-  getUsers(): Observable<any[]> {
+  getUsers(): Observable<User[]> {
     console.log('Before getting all users -- in service');
     return this.http.get(this.REST_API_URL)
-      .pipe(map((res: any[]) => {
+      .pipe(map((res: User[]) => {
         // sort, filter, parsing, removing
         console.log(res);
         return res;
@@ -60,19 +61,19 @@ export class UserService {
   }
 
   // get user by user id
-  getUserByUserId(userId): Observable<any> {
+  getUserByUserId(userId): Observable<User> {
     console.log(userId);
     return this.http.get(this.REST_API_URL + '/' + userId)
-      .pipe(map((res: any) => {
+      .pipe(map((res: User) => {
         console.log(res);
         return res;
       }));
   }
 
-  updateUser(contactData): Observable<any> {
+  updateUser(contactData): Observable<User> {
     console.log(contactData);
     return this.http.put(this.REST_API_URL + '/' + contactData.id, contactData)
-      .pipe(map((res: any) => {
+      .pipe(map((res: User) => {
         console.log(res);
         return res;
       }));
