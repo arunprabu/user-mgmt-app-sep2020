@@ -12,7 +12,7 @@ const childRoutes: Routes = [
     path: 'users', children: [
       { path: '', component: UsersComponent },
       { path: 'add', component: AddUserComponent },
-      { path: '1', component: UserDetailsComponent }
+      { path: ':userId', component: UserDetailsComponent } // URL param is userId
     ]
   }
 ];
