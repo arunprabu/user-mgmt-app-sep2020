@@ -38,4 +38,14 @@ export class UserService {
         return res;
       }));
   }
+
+  // get user by user id
+  getUserByUserId(userId) {
+    console.log(userId);
+    return this.http.get(this.REST_API_URL + '/' + userId)
+      .pipe(map((res: any) => {
+        console.log(res);
+        return res;
+      }));
+  }
 }
