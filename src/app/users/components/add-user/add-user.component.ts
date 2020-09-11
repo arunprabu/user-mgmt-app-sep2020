@@ -29,16 +29,15 @@ export class AddUserComponent implements OnInit {
     // Refer HTML for step 3
   }
 
-  addUserSubmitHandler(){
+  async addUserSubmitHandler(){
     console.log(this.userForm.value);
 
-    // 2. send the above data to service
-    this.userService.createUser(this.userForm.value)
-      .subscribe( (res: any) => {  // 3. get resp from the service
-        console.log(res);
-        if (res && res.id){
-          this.isSaved = true;
-        }
-      });
+    const response: any = await this.userService.createUser(this.userForm.value);
+    console.log(response);
+    
+    if(response && response.id){
+      this.isSaved = true;
+    }
+
   }
 }

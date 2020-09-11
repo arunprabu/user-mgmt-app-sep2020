@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -7,9 +8,10 @@ import { UserService } from '../services/user.service';
   styles: [
   ]
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
 
-  usersList: any;
+  usersList: any[];
+  usersSubscription: Subscription;
 
   constructor(private userService: UserService) {
     console.log('Inside constructor');
@@ -18,11 +20,21 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void { // lifecycle hook
     console.log('Inside ngOnInit');
     // ideal place for ajax calls
-    this.userService.getUsers()
-      .subscribe((res: any) => {
+    this.usersSubscription = this.userService.getUsers()
+      .subscribe((res: any[]) => {
         console.log(res);
         this.usersList = res;
       });
   }
+
+  ngOnDestroy(){
+    // ideal place for you to clear the data, array, clear Interval, unsubscribe
+    console.log('Inside destroy');
+    this.usersSubscription.unsubscribe();
+    if (this.usersList && this.usersList.length > 0 ){
+      this.usersList.length = 0; 
+    }
+  }
+
 
 }

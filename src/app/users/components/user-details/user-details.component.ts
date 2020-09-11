@@ -36,7 +36,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   updateUserHandler(formInfo) {
-    // console.log(formInfo); // form state - for additional ts side validation
+    console.log(formInfo); // form state - for additional ts side validation
     console.log(this.duplicateContactData);
     this.userService.updateUser(this.duplicateContactData)
       .subscribe((res: any) => {
