@@ -49,5 +49,12 @@ export class UserService {
       }));
   }
 
-  
+  updateUser(contactData) {
+    console.log(contactData);
+    return this.http.put(this.REST_API_URL + '/' + contactData.id, contactData)
+      .pipe(map((res: any) => {
+        console.log(res);
+        return res;
+      }));
+  }
 }

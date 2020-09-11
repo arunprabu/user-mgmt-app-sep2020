@@ -6,7 +6,7 @@ import { UsersComponent } from './components/users.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 
-// configuring child routes -- todo: lazy loading
+// configuring child routes
 const childRoutes: Routes = [
   {
     path: 'users', children: [
