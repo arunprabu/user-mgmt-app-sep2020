@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonDataService } from '../../services/common-data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  accountName: string;
+
+  constructor( private commonDataService: CommonDataService) { }
 
   ngOnInit(): void {
+    this.commonDataService.latestAccountName.subscribe( (data: any) => {
+      console.log(data);
+      this.accountName = data;
+    });
   }
 
 }
