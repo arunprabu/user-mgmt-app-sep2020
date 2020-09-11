@@ -3,4 +3,18 @@
     <p>{{accountName}}</p>
     <input type="text" [(ngModel)]="accountName"> 
     <button type="button" (click)="updateAccountBtnHandler()">Update Account Name</button>
+
+    <hr>
+    <h2>Pipes</h2>
+    <p>{{loremIpsum}}</p>
+    <p>{{loremIpsum | uppercase }}</p>
+    <p>{{today}}</p>
+    <p>{{today | date }}</p>
+    <p>{{today | date: 'dd/MMMM/yyyy hh:mm:ss a'}}</p> <!-- parameterised pipe -->
+
+    <h3>custom pipe </h3>
+    ng g p shared/pipes/ellipsis 
+    <p>{{loremIpsum | ellipsis }}</p>
+    <p>{{loremIpsum | ellipsis: '40' }}</p>
+    <p>{{loremIpsum | ellipsis: '10' }}</p>
 </div>

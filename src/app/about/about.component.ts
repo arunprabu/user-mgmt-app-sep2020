@@ -11,6 +11,10 @@ export class AboutComponent implements OnInit {
 
   accountName: string;
 
+  loremIpsum = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.';
+
+  today: Date = new Date();
+
   constructor( private commonDataService: CommonDataService ) { }
 
   ngOnInit(): void {

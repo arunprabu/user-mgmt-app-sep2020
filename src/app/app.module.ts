@@ -14,6 +14,7 @@ import { CpbComponent } from './concepts/components/cpb/cpb.component';
 import { CebComponent } from './concepts/components/ceb/ceb.component';
 import { ColorizerDirective } from './concepts/directives/colorizer.directive';
 import { UsersModule } from './users/users.module';
+import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 
 // Decorator
 // Main Switching Box
@@ -28,7 +29,8 @@ import { UsersModule } from './users/users.module';
     AboutComponent,
     CpbComponent,
     CebComponent,
-    ColorizerDirective
+    ColorizerDirective,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,

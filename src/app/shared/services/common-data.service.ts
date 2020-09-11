@@ -20,7 +20,7 @@ export class CommonDataService {
 
   // then, some comp can update the data by pushing next value in the observable
   constructor() {
-
+    
   }
 
   // handle update from about comp.
